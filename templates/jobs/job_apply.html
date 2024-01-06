@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+    <section class="site-section" id="next-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <center><h1 class="lead">Apply for job</h1></center>
+                    <form action="" method="POST" class="job-apply-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-primary btn-md text-white" data-bs-toggle="modal"
+                                        data-bs-target="#confirmationModal">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-lg shadow-lg">
+                <div class="modal-header p-5 bg-light rounded-lg">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-5">
+                    <p class="lead mb-4">Are you sure you want to apply for this job?</p>
+                    <div class="row g-4">
+                        <div class="col">
+                            <button type="button" class="btn btn-lg btn-secondary w-100" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-lg btn-primary w-100" id="confirmApplication">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Confirmation Modal -->
+
+    <script>
+        // JavaScript to handle form submission on confirmation
+        const confirmButton = document.getElementById('confirmApplication');
+        confirmButton.addEventListener('click', function () {
+            const form = document.querySelector('.job-apply-form');
+            form.submit();
+        });
+    </script>
+{% endblock %}

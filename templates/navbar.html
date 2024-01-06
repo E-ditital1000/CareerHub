@@ -1,0 +1,97 @@
+{% load static %}
+     <!-- Add this variable in your Django template -->
+     {% with is_user_authenticated=user.is_authenticated %}
+     {% endwith %}
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+  <!-- Navbar content... -->
+  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+    <h1 class="m-0 text-primary">Career Hub</h1>
+  </a>
+  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto p-4 p-lg-0">
+      <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+      <a href="{% url 'jobs:about' %}" class="nav-item nav-link">About</a>
+      <a href="{% url 'jobs:contact' %}" class="nav-item nav-link">Contact</a>
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
+        <div class="dropdown-menu rounded-0 m-0">
+          {% if user.is_authenticated %}
+          <a href="{% url 'accounts:logout' %}" class="dropdown-item">Logout</a>
+          {% endif %}
+          <a href="{% url 'jobs:job-listing' %}" class="dropdown-item">Job List</a>
+        </div>
+      </div>
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dashboard</a>
+        <div class="dropdown-menu rounded-0 m-0">
+          {% if user.is_authenticated %}
+          {% if user.employee.is_employee %}
+              <a href="{% url 'accounts:employee_dashboard' %}" class="dropdown-item">Employee Dashboard<i class="fa fa-arrow-right ms-3"></i></a>
+          {% elif user.is_employer or user.is_superuser %}
+              <a href="{% url 'jobs:dashboard' %}" class="dropdown-item">Employer Dashboard<i class="fa fa-arrow-right ms-3"></i></a>
+          {% endif %}
+      {% endif %}
+      
+      
+      
+      
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<!--<header class="site-navbar mt-3">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="site-logo col-6"><a href="{% url 'home' %}">Careers</a></div>
+
+      <nav class="mx-auto site-navigation">
+        <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
+          <li><a href="{% url 'home' %}" class="nav-link active">Home</a></li>
+          <li><a href="{% url 'jobs:job-listing' %}">Job Listings</a></li>
+          <li><a href="{% url 'jobs:about' %}">About</a></li>
+          <li><a href="{% url 'jobs:contact' %}">Contact</a></li>
+             <li><a href="{% url 'jobs:service' %}"> Services</a></li>
+
+
+          <li class="d-lg-none"><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+{% if user.is_authenticated %}
+      <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
+        <div class="ml-auto">
+
+
+          <ul class="nav nav-tabs">
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="True" aria-expanded="false">
+      {{request.user.first_name}} {{request.user.last_name}}</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
+
+    </div>
+  </li>
+
+
+</ul>
+
+
+
+
+        </div>
+      </div>
+
+
+
+{% endif %}
+    </div>
+  </div>
+    </header>
+  -->

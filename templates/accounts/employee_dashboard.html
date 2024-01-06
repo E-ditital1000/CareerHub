@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'navbar.html' %}
+<head>
+    <!-- Add these links to include Bootstrap and jQuery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </head>
+  
+    <div class="container mt-4">
+        <h1 style="text-align: center;">Welcome <br> {{ user.first_name }} {{ user.last_name }}</h1>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card bg-light mb-3">
+                    <div class="card-header">Employee Information</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong>Skills:</strong> {{ employee.skills }}<br>
+                            <strong>Schedule:</strong> {{ employee.schedule }}<br>
+                            <strong>Contact Number:</strong> {{ employee.contact_number }}<br>
+                            <strong>Address:</strong> {{ employee.address }}<br>
+                            <strong>Job Preferences:</strong> {{ employee.job_preferences }}<br>
+                            <strong>Part-Time:</strong> {% if employee.is_part_time %}Yes{% else %}No{% endif %}<br>
+                            <strong>Full-Time:</strong> {% if employee.is_full_time %}Yes{% else %}No{% endif %}<br>
+                            <strong>Contract:</strong> {% if employee.is_contract %}Yes{% else %}No{% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<a href="{% url 'accounts:edit_employee_popup' %}" class="btn btn-primary">
+    <span class=" pe-2">
+        <i class="bi bi-pencil"></i>
+    </span>
+    Edit Info</a>
+
+
+{% endblock %}
+edit_employee_popup

@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+{% include 'navbar.html' %}
+<style>
+  .container {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .card {
+    width: 300px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid var(--bc, #000);
+    margin-bottom: 15px;
+  }
+  
+  h1 {
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: #333;
+  }
+  
+  h2 {
+    margin: 15px 0 5px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .role {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .card a {
+    background: var(--btn, #000);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+  
+  .card a:hover {
+    background: #333;
+  }
+  
+  @media (max-width: 767px) {
+    .card {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  </style>
+  
+<!-- Other head elements -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<section class="home-section section-hero inner-page overlay bg-image"
+      style="background-image: url('{% static 'images/websing.jpg' %}');" id="home-section">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-12">
+            <div class="mb-5 text-center">
+              <h1 class="text-white font-weight-bold">About Us</h1>
+              <p>Find your dream jobs in our powerful career website .</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+     <section class="site-section pb-0">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <a data-fancybox data-ratio="2" href="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2F100064132683910%2Fvideos%2F669117201992231%2F&show_text=false&width=560&t=0" class="block__96788">
+              <span class="play-icon"><span class="icon-play"></span></span>
+              <img src="{% static 'images/About2.jpg' %}" alt="Image" class="img-fluid img-shadow">
+            </a>
+          </div>
+          <div class="col-lg-5 ml-auto">
+            <h2 class="section-title mb-3">Careers for Your Careers</h2>
+            <p class="lead">E-digital Network is a dynamic and innovative technology company located in Gradnersville, Liberia. </p>
+            <p>With a steadfast commitment to excellence, we have been serving our community and beyond since our establishment. Our range of services encompasses a broad spectrum of digital solutions designed to empower individuals and businesses alike.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <h1>Our Team</h1>
+      <div class="row">
+        <div class="card" style="--bc: #8E9792;--btn: #8E9792;">
+          <img src="{% static 'images/1.jpg' %}" alt="*">
+          <h2>Abraham E. Bedell</h2>
+          <p class="role">Chief Executive Officer</p>
+          <p>elvistech7@mail.com</p>
+          <a href="tel:+231778187295">Call</a>
+        </div>
+        <div class="card" style="--bc: #C89F9C;--btn: #C89F9C;">
+          <img src="{% static 'images/2.jpg' %}" alt="*">
+          <h2>Joanna B. Roberts</h2>
+          <p class="role">Admin & Financial Officer</p>
+          <p>joannabroberts@gmail.com</p>
+          <a href="tel:+231777217070">Call</a>
+        </div>
+        <div class="card" style="--bc: #15307D;--btn: #15307D;">
+          <img src="{% static 'images/3.jpg' %}" alt="*">
+          <h2>George C. Toby</h2>
+          <p class="role">Opperation Manager</p>
+          <p>georgectoby57@mail.com</p>
+          <a href="tel:+880123456789">Call</a>
+        </div>
+      </div>
+    </div>
+
+
+</script>
+{% endblock %}
