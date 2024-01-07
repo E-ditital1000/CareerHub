@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
@@ -7,10 +8,15 @@ from django.utils import timezone
 # Create your models here.
 
 
+def validate_bio_word_count(value):
+    max_word_count = 200  # Set your desired word limit
+    words = value.split()
+    if len(words) > max_word_count:
+        raise ValidationError(f'The bio should not exceed {max_word_count} words.')
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
-    # Add additional fields for the user profile (e.g., bio, profile picture, etc.)
-    bio = models.TextField(blank=True)
+    bio = models.TextField(blank=True, validators=[validate_bio_word_count])
     profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
     # Add other fields as needed
 
