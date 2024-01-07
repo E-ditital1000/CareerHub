@@ -113,25 +113,29 @@ def contact(request):
     return render(request, "jobs/contact.html", context)
 
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 @login_required
 def job_listing(request):
-    query = JobListing.objects.all().count()
+    # Get all job listings ordered by published_on
+    all_job_listings = JobListing.objects.all().order_by('-published_on')
 
-    qs = JobListing.objects.all().order_by('-published_on')
-    paginator = Paginator(qs, 3)  # Show 3 jobs per page
+    # Paginate the queryset
+    paginator = Paginator(all_job_listings, 3)  # Show 3 jobs per page
     page = request.GET.get('page')
+
     try:
-        qs = paginator.page(page)
+        job_listings = paginator.page(page)
     except PageNotAnInteger:
-        qs = paginator.page(1)
+        job_listings = paginator.page(1)
     except EmptyPage:
-        qs = paginator.page(paginator.num_pages)
+        job_listings = paginator.page(paginator.num_pages)
 
     context = {
-        'query': qs,
-        'job_qs': query
-
+        'query': job_listings,  # Use the same variable name for the paginated queryset
+        'job_count': paginator.count,  # Use paginator.count to get the total count
     }
+
     return render(request, "jobs/job_listing.html", context)
 
 
@@ -328,3 +332,4 @@ def dashboard(request):
     }
 
     return render(request, 'jobs/dashboard.html', context)
+
