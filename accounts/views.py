@@ -47,16 +47,16 @@ def employee_registration(request):
             # Send confirmation email
             subject = 'Employee Registration Confirmation'
             message = (
-                f'Thank you for registering as an employee on Career Hub.\n\n'
+                f'Thank you, {user.first_name} {user.last_name}, for registering as an employee on CareerHub.\n\n'
                 f'We appreciate your commitment to being part of our community. '
                 f'Please find below some important information:\n\n'
-                f'Website:www.edigitalnetwork.tech\n'
+                f'Website:careerhublib.onrender.com\n'
                 f'Email: {user.email}\n\n'
                 f'You can now log in to your account and explore our platform. If you have any '
                 f'questions or need assistance, feel free to contact us at edigitalnetwork842@gmail.com.\n\n'
-                f'We look forward to your contributions and success on Career Hub!\n\n'
+                f'We look forward to your contributions and success on CareerHub!\n\n'
                 f'Best regards,\n'
-                f'The Abraham Bedell \n CEO @ Career Hub'
+                f'The Abraham Bedell \n CEO @ CareerHub'
             )
             from_email = 'joannabedella@gmail.com'  # Change to your email address
             to_email = [user.email]
@@ -79,8 +79,20 @@ def employer_registration(request):
             user = form.save()
 
             # Send confirmation email with user's name
-            subject = 'Employer Registration Confirmation'
-            message = f'Thank you, {user.first_name} {user.last_name}, for registering as an employer with Career Hub! We are delighted to welcome you to our platform, where we strive to connect businesses with top-tier talent and provide unparalleled job opportunities.'
+            subject = 'Welcome to Career Hub - Employer Registration Confirmation'
+            message = (
+    f'Thank you, {user.first_name} {user.last_name}, for registering as an employer on CareerHub.\n\n'
+    f'We appreciate your commitment to being part of our community. '
+    f'Please find below some important information:\n\n'
+    f'Website: careerhublib.onrender.com\n'
+    f'Email: {user.email}\n\n'
+    f'You can now log in to your account and explore our platform. If you have any '
+    f'questions or need assistance, feel free to contact us at edigitalnetwork842@gmail.com.\n\n'
+    f'We look forward to your contributions and success on CareerHub!\n\n'
+    f'Best regards,\n'
+    f'The Abraham Bedell \n CEO @ CareerHub'
+)
+
             from_email = 'joannabedella@gmail.com'  # Change to your email address
             to_email = [user.email]
             send_mail(subject, message, from_email, to_email, fail_silently=False)
