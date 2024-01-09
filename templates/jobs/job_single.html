@@ -5,22 +5,35 @@
 {% load crispy_forms_tags %}
 
 
+{% block head %}
+    <!-- Other head elements -->
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ q.title }}">
+    <meta property="og:description" content="{{ q.description }}">
+    <meta property="og:image" content="{{ q.image.url }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}{{ job.get_absolute_url }}">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Your Site Name">
+
+    <!-- Other meta tags, stylesheets, etc. -->
+{% endblock %}
 
 
 
 {% block content %}
-    <!-- HOME -->
-    {% include 'navbar.html' %}
-    <section class="home-section section-hero inner-page overlay bg-image"
-      style="background-image: url('https://res.cloudinary.com/dj6izkhrs/image/upload/v1704655253/zq0ij1ajgzy5jmjgirsy.jpg');" id="home-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <h1 class="text-white font-weight-bold">{{ q.title }}</h1>
-                </div>
+
+{% include 'navbar.html' %}
+<section class="home-section section-hero inner-page overlay bg-image"
+  style="background-image: url('https://res.cloudinary.com/dj6izkhrs/image/upload/v1704655253/zq0ij1ajgzy5jmjgirsy.jpg');" id="home-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h1 class="text-white font-weight-bold">{{ q.title }}</h1>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
     <section class="site-section">
