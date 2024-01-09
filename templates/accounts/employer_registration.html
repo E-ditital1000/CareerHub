@@ -3,37 +3,36 @@
 {% load crispy_forms_tags %}
 
 {% load static %}
-{% block content %}
 
-<!-- Hero Section -->
-<section class="home-section section-hero inner-page overlay bg-image"
-         style="background-image: url('images/hero_1.jpg');" id="home-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="mb-5 text-center">
-                    <h2 class="text-white font-weight-bold">Not registered yet?</h2>
-                    <p>If you have any questions, please feel free to contact us, our customer service center is working for you 24/7.</p>
+{% block content %}
+    <!-- Hero Section -->
+    <section class="home-section section-hero inner-page overlay bg-image"
+             style="background-image: url('https://res.cloudinary.com/dj6izkhrs/image/upload/v1704655253/zq0ij1ajgzy5jmjgirsy.jpg');" id="home-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="mb-5 text-center">
+                        <h2 class="text-white font-weight-bold">Not registered yet?</h2>
+                        <p>If you have any questions, please feel free to contact us, our customer service center is working for you 24/7.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-  <!-- Sign Up Section -->
-<section class="site-section" id="next-section">
-    <div class="container">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-            <center><h1 class="lead">Sign Up</h1></center>
-            <h2>Employer Registration</h2>
+    <!-- Sign Up Section -->
+    <section class="site-section" id="next-section">
+        <div class="container">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <center><h1 class="lead">Sign Up</h1></center>
+            </div>
+            <div class="row">
+                <form method="post" action="{% url 'accounts:employer_registration' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary btn-md text-white">Register as Employer</button>
+                </form>
+            </div>
         </div>
-        <div class="row">
-            <form method="post" action="{% url 'accounts:employer_registration' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary btn-md text-white">Register as Employer</button>
-            </form>
-        </div>
-    </div>
-</section>
+    </section>
 {% endblock %}

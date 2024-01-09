@@ -115,10 +115,29 @@
                     <div class="bg-light p-3 border rounded">
                         <h3 class="text-primary mt-3 h5 pl-3 mb-3">Share</h3>
                         <div class="px-3">
-                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}{{ job.get_absolute_url }}" class="pt-3 pb-3 pr-3 pl-0" target="_blank"><span class="icon-facebook"></span></a>
-                            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}{{ job.get_absolute_url }}&text=Check%20out%20this%20job:%20{{ job.title }}" class="pt-3 pb-3 pr-3 pl-0" target="_blank"><span class="icon-twitter"></span></a>
-                            <a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}{{ job.get_absolute_url }}&title={{ job.title }}" class="pt-3 pb-3 pr-3 pl-0" target="_blank"><span class="icon-linkedin"></span></a>
-                            <a href="https://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}{{ job.get_absolute_url }}&media={{ job.image.url }}&description={{ job.title }}" class="pt-3 pb-3 pr-3 pl-0" target="_blank"><span class="icon-pinterest"></span></a>
+<!-- Update the link to include the job_listing_id -->
+<a href="{% url 'jobs:apply' job_listing_id=q.id %}" class="btn btn-block btn-primary btn-md">Apply Now</a>
+
+<!-- Facebook Share -->
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}{{ job.get_absolute_url }}" class="pt-3 pb-3 pr-3 pl-0" target="_blank">
+    <span class="icon-facebook"></span>
+</a>
+
+<!-- Twitter Share -->
+<a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}{{ job.get_absolute_url }}&text=Check%20out%20this%20job:%20{{ q.title }}" class="pt-3 pb-3 pr-3 pl-0" target="_blank">
+    <span class="icon-twitter"></span>
+</a>
+
+<!-- LinkedIn Share -->
+<a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}{{ job.get_absolute_url }}&title={{ q.title }}&summary={{ q.description }}&source={{ q.company_name }}" class="pt-3 pb-3 pr-3 pl-0" target="_blank">
+    <span class="icon-linkedin"></span>
+</a>
+
+<!-- Pinterest Share -->
+<a href="https://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}{{ job.get_absolute_url }}&media={{ q.image.url }}&description={{ q.title }}" class="pt-3 pb-3 pr-3 pl-0" target="_blank">
+    <span class="icon-pinterest"></span>
+</a>
+
                         </div>
                     </div>                    
                     <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
