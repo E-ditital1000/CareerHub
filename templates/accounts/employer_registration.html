@@ -29,7 +29,7 @@
             <div class="row">
                 <form method="post" action="{% url 'accounts:employer_registration' %}">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ form|crispy }}
                     <button type="submit" class="btn btn-primary btn-md text-white">Register as Employer</button>
                 </form>
             </div>
