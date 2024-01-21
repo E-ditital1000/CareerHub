@@ -21,6 +21,8 @@ class ContactForm(forms.ModelForm):
 
 class JobListingForm(forms.ModelForm):
 
+    
+
     description = forms.CharField(
         widget=forms.Textarea(attrs={'placeholder': 'Enter job description here'}),
         label='Job Description'
@@ -36,7 +38,6 @@ class JobListingForm(forms.ModelForm):
         label='Experience'
     )
 
-
     def __init__(self, *args, **kwargs):
         super(JobListingForm, self).__init__(*args, **kwargs)
         self.fields['job_location'].widget.attrs['placeholder'] = 'Monrovia, Liberia'
@@ -51,7 +52,12 @@ class JobListingForm(forms.ModelForm):
         labels = {
             "job_location": "Job Location",
             "published_on": "Publish Date"
-        }
+    }
+    widgets = {
+        'payment_status': forms.HiddenInput(),
+    }
+
+
 
 
 

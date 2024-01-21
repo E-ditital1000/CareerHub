@@ -138,6 +138,11 @@ def job_listing(request):
 
     return render(request, "jobs/job_listing.html", context)
 
+# views.py in your jobs app
+
+#from mtn_payment_app.mtn_integration import MTNIntegration  # Import MTNIntegration from your payment app
+
+
 
 
 # views.py

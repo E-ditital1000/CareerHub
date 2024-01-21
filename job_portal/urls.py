@@ -20,12 +20,15 @@ from jobs.views import dashboard
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.urls import path, include
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('dashboard/', dashboard, name='dashboard'),
     path('jobs/', include('jobs.urls', namespace='jobs')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('mtn_payment_app/', include('mtn_payment_app.urls', namespace='mtn_payment_app')),
 ]
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns # new

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'jobs',
+    'mtn_payment_app',
     'crispy_forms',
 ]
 
@@ -122,9 +123,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': ('railway'),
         'USER': ('postgres'),
-        'PASSWORD':('1C4b-4f4bD4b2gDeBf26Bd34*FFFbGfG'),
-        'HOST': ('roundhouse.proxy.rlwy.net'),
-        'PORT': ('15797'),
+        'PASSWORD':('f46GDDFgcg6*4D15f*4D6gE*Ca1*B4FA'),
+        'HOST': ('monorail.proxy.rlwy.net'),
+        'PORT': ('14601'),
     }
 }
 

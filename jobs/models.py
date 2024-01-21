@@ -73,6 +73,7 @@ class Gender(models.Model):
         return self.gender
 
 
+
 class JobListing(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
                              null=True, editable=False, blank=True)
@@ -93,11 +94,15 @@ class JobListing(models.Model):
     application_deadline = models.DateTimeField()
     published_on = models.DateTimeField(default=timezone.now)
 
+    # New field for payment status
+    payment_status = models.BooleanField(default=False)
+
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse("jobs:job-single", args=[self.id])
+
     
 class ApplyJob(models.Model):
     job_listing = models.ForeignKey(JobListing, on_delete=models.CASCADE, default=None)
