@@ -33,7 +33,7 @@ SECRET_KEY = '7$f8tcuj0j)52ymv^3-9$o^^)7)^q_(lo*jg+-y!r9zbt#zebi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['careerhublib.onrender.com','.now.sh', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['jobnet360.com','careerhublib.onrender.com','.now.sh', '127.0.0.1', 'localhost']
 
 
 # Application definition
