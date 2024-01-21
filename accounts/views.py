@@ -47,16 +47,16 @@ def employee_registration(request):
             # Send confirmation email
             subject = 'Employee Registration Confirmation'
             message = (
-                f'Thank you, {user.first_name} {user.last_name}, for registering as an employee on CareerHub.\n\n'
+                f'Thank you, {user.first_name} {user.last_name}, for registering as an employee on JOBNET360.\n\n'
                 f'We appreciate your commitment to being part of our community. '
                 f'Please find below some important information:\n\n'
-                f'Website:careerhublib.onrender.com\n'
+                f'Login:jobnet360.com\n'
                 f'Email: {user.email}\n\n'
                 f'You can now log in to your account and explore our platform. If you have any '
                 f'questions or need assistance, feel free to contact us at edigitalnetwork842@gmail.com.\n\n'
-                f'We look forward to your contributions and success on CareerHub!\n\n'
+                f'We look forward to your contributions and success on JOBNET360!\n\n'
                 f'Best regards,\n'
-                f'The Abraham Bedell \n CEO @ CareerHub'
+                f'The Abraham Bedell \n CEO @ JOBNET360'
             )
             from_email = 'joannabedella@gmail.com'  # Change to your email address
             to_email = [user.email]
@@ -81,16 +81,16 @@ def employer_registration(request):
             # Send confirmation email with user's name
             subject = 'Welcome to Career Hub - Employer Registration Confirmation'
             message = (
-    f'Thank you, {user.first_name} {user.last_name}, for registering as an employer on CareerHub.\n\n'
+    f'Thank you, {user.first_name} {user.last_name}, for registering as an employer on JOBNET360.\n\n'
     f'We appreciate your commitment to being part of our community. '
     f'Please find below some important information:\n\n'
-    f'Website: careerhublib.onrender.com\n'
+    f'Login: jobnet360.com\n'
     f'Email: {user.email}\n\n'
     f'You can now log in to your account and explore our platform. If you have any '
     f'questions or need assistance, feel free to contact us at edigitalnetwork842@gmail.com.\n\n'
-    f'We look forward to your contributions and success on CareerHub!\n\n'
+    f'We look forward to your contributions and success on JOBNET360!\n\n'
     f'Best regards,\n'
-    f'The Abraham Bedell \n CEO @ CareerHub'
+    f'The Abraham Bedell \n CEO @ JOBNET360'
 )
 
             from_email = 'joannabedella@gmail.com'  # Change to your email address
