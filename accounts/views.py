@@ -56,7 +56,7 @@ def employee_registration(request):
                 f'questions or need assistance, feel free to contact us at edigitalnetwork842@gmail.com.\n\n'
                 f'We look forward to your contributions and success on JOBNET360!\n\n'
                 f'Best regards,\n'
-                f'The Abraham Bedell \n CEO @ JOBNET360'
+                f'Abraham Bedell \n CEO @ JOBNET360'
             )
             from_email = 'joannabedella@gmail.com'  # Change to your email address
             to_email = [user.email]
@@ -90,7 +90,7 @@ def employer_registration(request):
     f'questions or need assistance, feel free to contact us at edigitalnetwork842@gmail.com.\n\n'
     f'We look forward to your contributions and success on JOBNET360!\n\n'
     f'Best regards,\n'
-    f'The Abraham Bedell \n CEO @ JOBNET360'
+    f'Abraham Bedell \n CEO @ JOBNET360'
 )
 
             from_email = 'joannabedella@gmail.com'  # Change to your email address
