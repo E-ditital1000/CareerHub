@@ -34,11 +34,12 @@
             {% if user.is_authenticated %}
                 {% if user.employee.is_employee %}
                     <a href="{% url 'accounts:employee_dashboard' %}" class="dropdown-item">Employee Dashboard<i class="fa fa-arrow-right ms-3"></i></a>
-                {% elif user.is_employer or user.is_superuser %}
+                {% endif %}
+                {% if user.is_employer or user.is_superuser %}
                     <a href="{% url 'jobs:dashboard' %}" class="dropdown-item">Employer Dashboard<i class="fa fa-arrow-right ms-3"></i></a>
                 {% endif %}
             {% else %}
-                <p class="dropdown-item">Please log in to access the dashboard</p>
+                <p class="dropdown-item">login to access the dashboard</p>
             {% endif %}
         </div>
     </div>
