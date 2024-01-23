@@ -18,7 +18,7 @@ from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from .forms import EmployeeRegistrationForm  # Import your EmployeeRegistrationForm
-
+from django.contrib.auth.models import User
 
 @login_required
 def employee_dashboard(request):
