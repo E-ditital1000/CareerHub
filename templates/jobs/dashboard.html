@@ -101,7 +101,7 @@
 
     .title a.btn {
         text-decoration: none;
-        color: #007bff;
+        color: #009113;
     }
 
     .title a.btn:hover {
@@ -121,7 +121,7 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                <h3 class="text-success"><img src="https://bytewebster.com/img/logo.png" width="40"><span class="text-info">Career</span>Hub</h3> 
+                <h3 class="text-success">JOBNET</span>360</h3> 
             </a>
             <!-- User menu (mobile) -->
             <div class="navbar-user d-lg-none">
@@ -130,7 +130,7 @@
                     <!-- Toggle -->
                     <a href="#" id="sidebarAvatar" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="avatar-parent-child">
-                            <img alt="Image Placeholder" src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar- rounded-circle">
+                            <!--<img alt="Image Placeholder" src="#" class="avatar avatar- rounded-circle">-->
                             <span class="avatar-child avatar-badge bg-success"></span>
                         </div>
                     </a>
@@ -226,28 +226,18 @@
                         <!-- Actions -->
                         <div class="col-sm-6 col-12 text-sm-end">
                             <div class="mx-n1">
-                                <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
-                                    <span class=" pe-2">
-                                        <i class="bi bi-pencil"></i>
-                                    </span>
-                                    <span>Edit</span>
-                                </a>
+                               
                                 <a href="{% url 'jobs:job-post' %}" class="btn d-inline-flex btn-sm btn-primary mx-1">
                                     <span class=" pe-2">
                                         <i class="bi bi-plus"></i>
                                     </span>
                                     <span>Post Job</span>
                                 </a>
-                                <a href="#" class="btn d-inline-flex btn-sm btn-warning mx-1">
-                                    <span class=" pe-2">
-                                        <i class="bi bi-gear-wide-connected"></i>
-                                    </span>
-                                    <span>Manage</span>
-                                </a>
+                               
                             </div>
                         </div>
                     </div>
-                    <!-- Nav -->
+                    <!-- Nav 
                     <ul class="nav nav-tabs mt-4 overflow-x border-0">
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">All files</a>
@@ -258,7 +248,7 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link font-regular">File requests</a>
                         </li>
-                    </ul>
+                    </ul>-->
                 </div>
             </div>
         </header>
@@ -356,7 +346,7 @@
                             </table>
                         </div>
                         <div class="card-footer border-0 py-5">
-                            <span class="text-muted text-sm">Showing {{ company_info_list|length }} items out of 250 results found</span>
+                            <span class="text-muted text-sm"></span>
                             
                         </div>                        
                     </div>
