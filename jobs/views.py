@@ -24,6 +24,14 @@ from .forms import JobApplyForm
 from .models import JobListing
 from django.contrib import messages
 
+from django.http import HttpResponseNotFound, HttpResponseServerError
+
+def error_404_view(request, exception):
+    return render(request, '404.html', status=404)
+
+def error_500_view(request):
+    return render(request, '500.html', status=500)
+
 
 def job_apply(request, job_listing_id):
     job_listing = get_object_or_404(JobListing, id=job_listing_id)

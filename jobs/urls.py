@@ -16,3 +16,6 @@ urlpatterns = [
     path('thank-you/', thank_you_page, name='thank_you'),
 
 ]
+
+handler404 = 'jobs.views.error_404_view'
+handler500 = 'jobs_app.views.error_500_view'
