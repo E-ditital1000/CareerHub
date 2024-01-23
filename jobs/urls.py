@@ -18,4 +18,4 @@ urlpatterns = [
 ]
 
 handler404 = 'jobs.views.error_404_view'
-handler500 = 'jobs_app.views.error_500_view'
+handler500 = 'jobs.views.error_500_view'
