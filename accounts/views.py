@@ -29,18 +29,17 @@ def employee_dashboard(request):
         # If the Employee object doesn't exist, redirect to the registration page
         return redirect('accounts:employee_registration')
 
-    # Your existing employee_dashboard view logic goes here
     context = {'employee': employee}
     return render(request, 'accounts/employee_dashboard.html', context)
+
 
 def employee_registration(request):
     if request.method == 'POST':
         form = EmployeeRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            # user.is_employee = True  # This line can be omitted with the default value set in the model
             user.save()
-            
+
             # Create an Employee object for the user
             Employee.objects.create(user=user)
 
@@ -50,7 +49,7 @@ def employee_registration(request):
                 f'Thank you, {user.first_name} {user.last_name}, for registering as an employee on JOBNET360.\n\n'
                 f'We appreciate your commitment to being part of our community. '
                 f'Please find below some important information:\n\n'
-                f'Login:jobnet360.com\n'
+                f'Login: jobnet360.com\n'
                 f'Email: {user.email}\n\n'
                 f'You can now log in to your account and explore our platform. If you have any '
                 f'questions or need assistance, feel free to contact us at edigitalnetwork842@gmail.com.\n\n'
@@ -69,6 +68,7 @@ def employee_registration(request):
 
     context = {'form': form}
     return render(request, 'accounts/employee_registration.html', context)
+
 
 
 
@@ -139,8 +139,7 @@ def edit_employee_popup(request):
 
 
   
-def employer_dashboard(request):
-    return render(request, "accounts/employer_dashboard.html")
+
 
 from django.contrib import messages
 
@@ -177,7 +176,6 @@ def user_login(request):
 def logout_view(request):
     logout(request)
     return redirect('accounts:user_login')
-
 @login_required
 def employer_dashboard(request):
     # Retrieve statistics and other data needed for the dashboard
