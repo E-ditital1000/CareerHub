@@ -87,15 +87,13 @@ class JobListing(models.Model):
     company_email = models.EmailField(null=True, blank=True, default='yourmail@gmail.com')
     description = models.TextField()
     responsibilities = models.TextField()
-    experience = models.CharField(max_length=100)
+    experience = models.CharField(max_length=1000)
     job_location = models.CharField(max_length=120)
     Salary = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField(blank=True, upload_to='media', null=True)
     application_deadline = models.DateTimeField()
     published_on = models.DateTimeField(default=timezone.now)
 
-    # New field for payment status
-    payment_status = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
