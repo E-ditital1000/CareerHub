@@ -154,21 +154,27 @@ def job_listing(request):
 
 
 # views.py
-
 @login_required
 def job_post(request):
     if request.method == 'POST':
-        form = JobListingForm(request.POST, request.FILES)  # Include request.FILES for handling image upload
+        form = JobListingForm(request.POST, request.FILES)
+
+        # Check if an image is provided in the form
+        if 'image' not in request.FILES:
+            form.add_error('image', 'Please upload an image.')
+
         if form.is_valid():
             job_listing = form.save(commit=False)
             job_listing.user = request.user
             job_listing.save()
-            return redirect('jobs:job-single', id=job_listing.id)  # Redirect to the job detail page or any other desired page
+            return redirect('jobs:job-single', id=job_listing.id)
+
     else:
         form = JobListingForm()
 
     context = {'form': form}
     return render(request, "jobs/job_post.html", context)
+
 
 
 @login_required
