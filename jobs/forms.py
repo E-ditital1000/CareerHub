@@ -53,9 +53,7 @@ class JobListingForm(forms.ModelForm):
             "job_location": "Job Location",
             "published_on": "Publish Date"
     }
-    widgets = {
-        'payment_status': forms.HiddenInput(),
-    }
+   
 
 
 
