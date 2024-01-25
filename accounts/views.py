@@ -162,7 +162,7 @@ def user_login(request):
                 else:
                     # Handle other user login (employer, superuser, etc.)
                     login(request, user)
-                    return redirect('home')
+                    return redirect('jobs:dashboard')
             else:
                 messages.error(request, 'Invalid login credentials. Please try again.')
     else:
@@ -176,6 +176,8 @@ def user_login(request):
 def logout_view(request):
     logout(request)
     return redirect('accounts:user_login')
+
+
 @login_required
 def employer_dashboard(request):
     # Retrieve statistics and other data needed for the dashboard
