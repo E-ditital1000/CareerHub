@@ -1,0 +1,27 @@
+<!-- drafted_jobs.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Drafted Jobs</h2>
+
+  {% if drafted_jobs %}
+    <ul>
+      {% for job in drafted_jobs %}
+        <li>
+          {{ job.title }}
+          {% if job.status == 'draft' %}
+            <form method="post" action="{% url 'jobs:confirm-job' job.id %}">
+              {% csrf_token %}
+              <button type="submit">Confirm</button>
+            </form>
+          {% else %}
+            <span class="confirmed">Confirmed</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No drafted jobs found.</p>
+  {% endif %}
+{% endblock %}

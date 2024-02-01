@@ -11,10 +11,11 @@ urlpatterns = [
     path('job-listing/', job_listing, name='job-listing'),
     path('job-single/<int:id>/', job_single, name='job-single'),
     path('search/', SearchView.as_view(), name='search'),
-    path('apply/<int:job_listing_id>/', job_apply, name='apply'), # Modified URL pattern for apply
+    path('apply/<int:job_listing_id>/', job_apply, name='apply'),
     path('dashboard/', dashboard, name='dashboard'),
     path('thank-you/', thank_you_page, name='thank_you'),
-
+    path('drafted_jobs/', drafted_jobs, name='drafted_jobs'),
+    path('job-draft/<int:id>/', job_draft, name='job-draft'),  # New URL pattern for job draft
 ]
 
 handler404 = 'jobs.views.error_404_view'

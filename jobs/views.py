@@ -152,8 +152,6 @@ def job_listing(request):
 
 
 
-
-# views.py
 @login_required
 def job_post(request):
     if request.method == 'POST':
@@ -167,13 +165,47 @@ def job_post(request):
             job_listing = form.save(commit=False)
             job_listing.user = request.user
             job_listing.save()
-            return redirect('jobs:job-single', id=job_listing.id)
+
+            messages.success(request, 'Your job post is saved as a draft. Make a payment to publish it.')
+
+            # Redirect to the appropriate view based on the job status
+            if job_listing.status == 'draft':
+                return redirect('jobs:job-draft', id=job_listing.id)
+            else:
+                return redirect('jobs:job-single', id=job_listing.id)
 
     else:
         form = JobListingForm()
 
     context = {'form': form}
     return render(request, "jobs/job_post.html", context)
+    
+@login_required
+def job_draft(request, id):
+    job_listing = get_object_or_404(JobListing, id=id)
+
+    return render(request, 'jobs/job_draft.html', {'job_listing': job_listing})
+
+@login_required
+def drafted_jobs(request):
+    drafted_jobs = JobListing.objects.filter(user=request.user, status='draft')
+
+    context = {'drafted_jobs': drafted_jobs}
+    return render(request, "jobs/drafted_jobs.html", context)
+
+@login_required
+def confirm_job(request, job_id):
+    job_listing = get_object_or_404(JobListing, id=job_id, user=request.user)
+
+    # Check if the job is already confirmed
+    if job_listing.status == 'confirmed':
+        messages.warning(request, 'This job has already been confirmed.')
+    else:
+        job_listing.status = 'confirmed'
+        job_listing.save()
+        messages.success(request, 'Job confirmed successfully.')
+
+    return redirect('jobs:drafted-jobs')
 
 
 

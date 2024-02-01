@@ -20,9 +20,6 @@ class ContactForm(forms.ModelForm):
 
 
 class JobListingForm(forms.ModelForm):
-
-    
-
     description = forms.CharField(
         widget=forms.Textarea(attrs={'placeholder': 'Enter job description here'}),
         label='Job Description'
@@ -47,12 +44,12 @@ class JobListingForm(forms.ModelForm):
 
     class Meta:
         model = JobListing
-        fields = '__all__'
         exclude = ('user',)
         labels = {
             "job_location": "Job Location",
-            "published_on": "Publish Date"
-    }
+            "published_on": "Publish Date",
+            "status": "Job Status",  # Include the label for 'status' field
+        }
    
 
 

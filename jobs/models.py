@@ -75,6 +75,10 @@ class Gender(models.Model):
 
 
 class JobListing(models.Model):
+    STATUS_CHOICES = [
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+    ]
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
                              null=True, editable=False, blank=True)
     title = models.CharField(max_length=100)
@@ -87,13 +91,14 @@ class JobListing(models.Model):
     company_email = models.EmailField(null=True, blank=True, default='yourmail@gmail.com')
     description = models.TextField()
     responsibilities = models.TextField()
-    experience = models.CharField(max_length=1000)
+    experience = models.CharField(max_length=100)
     job_location = models.CharField(max_length=120)
     Salary = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField(blank=True, upload_to='media', null=True)
     application_deadline = models.DateTimeField()
     published_on = models.DateTimeField(default=timezone.now)
-
+    payment_status = models.BooleanField(default=False)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')  # Include status field
 
     def __str__(self):
         return self.title
