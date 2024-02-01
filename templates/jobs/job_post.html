@@ -7,7 +7,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <center><h1 class="lead">Post a Job</h1> </center>
-                    <form action="" method="POST" class="">
+                    <form action="" method="POST" enctype="multipart/form-data" class="">
                         {% csrf_token %}
                         {{ form|crispy }}
                         <div class="row form-group">

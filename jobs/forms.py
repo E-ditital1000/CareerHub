@@ -18,7 +18,6 @@ class ContactForm(forms.ModelForm):
             'message'
         ]
 
-
 class JobListingForm(forms.ModelForm):
     description = forms.CharField(
         widget=forms.Textarea(attrs={'placeholder': 'Enter job description here'}),
@@ -42,6 +41,13 @@ class JobListingForm(forms.ModelForm):
         self.fields['title'].widget.attrs['placeholder'] = 'Software Engineer, Web Designer'
         self.fields['application_deadline'].widget.attrs['placeholder'] = '2022-12-27'
 
+        # Hide the 'status' field for regular users
+        if not kwargs.get('instance') or not kwargs['instance'].user.is_superuser:
+            self.fields['status'].widget = forms.HiddenInput()
+        else:
+            # Set the default value to 'draft' for regular users
+            self.fields['status'].initial = 'draft'
+
     class Meta:
         model = JobListing
         exclude = ('user',)
@@ -50,7 +56,6 @@ class JobListingForm(forms.ModelForm):
             "published_on": "Publish Date",
             "status": "Job Status",  # Include the label for 'status' field
         }
-   
 
 
 
