@@ -43,13 +43,14 @@
                     <div class="d-flex align-items-center">
                         {% if q.image %}
                         <div class="border p-2 d-inline-block mr-3 rounded">
-                            <img src="{{ q.image.url }}" alt="Company logo">
+                            <img src="{{ q.image.url }}" alt="Company logo" style="width: 100px; height: 100px; object-fit: cover;">
                         </div>
                     {% else %}
                         <div class="border p-2 d-inline-block mr-3 rounded">
                             <p>No image available</p>
                         </div>
                     {% endif %}
+                    
                                           
                         <div>
                             <h2>{{ q.title }}</h2>
