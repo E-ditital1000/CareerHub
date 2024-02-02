@@ -27,7 +27,7 @@
                 <center><h1 class="lead">Sign Up</h1></center>
             </div>
             <div class="row">
-                <form method="post" action="{% url 'accounts:employer_registration' %}">
+                <form method="post" action="{% url 'accounts:employer_registration' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <button type="submit" class="btn btn-primary btn-md text-white">Register as Employer</button>

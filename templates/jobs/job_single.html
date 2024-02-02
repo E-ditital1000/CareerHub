@@ -24,6 +24,16 @@
 {% block content %}
 
 {% include 'navbar.html' %}
+<style>
+    /* styles.css */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+</style>
+
+
 <section class="home-section section-hero inner-page overlay bg-image"
   style="background-image: url('https://res.cloudinary.com/dj6izkhrs/image/upload/v1704655253/zq0ij1ajgzy5jmjgirsy.jpg');" id="home-section">
     <div class="container">
@@ -74,12 +84,34 @@
                     </div>
                 </div>
             </div>
+            <!--silder-->
             <div class="row">
                 <div class="col-lg-8">
                     <div class="mb-5">
-                        <figure class="mb-5"><img src="{% static 'images/green.png' %}"
-                                                  alt="Free Website Template by Free-Template.co"
-                                                  class="img-fluid rounded"></figure>
+                        <div class="container mt-5">
+                            <div id="imageSlider" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{% static 'images/d1.png' %}" alt="Image 1" class="img-fluid rounded">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{% static 'images/d2.png' %}" alt="Image 2" class="img-fluid rounded">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{% static 'images/d3.png' %}" alt="Image 3" class="img-fluid rounded">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#imageSlider" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#imageSlider" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                        
                         <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span
                                 class="icon-align-left mr-3"></span>Job
                             Description</h3>
@@ -164,7 +196,9 @@
     </section>
 
 
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock %}
 
 
